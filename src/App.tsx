@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Main from "./components/Main";
+
+/* styles */
+import "./App.css";
+import "./styles/app-image.css";
 
 function App() {
+  const body = document.getElementById("body");
+  const [bgType, setBgType] = useState("dark");
+
+  if (body) body.classList.add("dark");
+
+  const toggleBg = () => {
+    if (body) {
+      if (bgType === "dark") {
+        body.classList.remove("dark");
+        body.classList.add("light");
+        return setBgType("light");
+      }
+      body.classList.remove("light");
+      body.classList.add("dark");
+      return setBgType("dark");
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`app ${bgType} h-100`}>
+      <div className="app-image" />
+      <Main light={bgType === "light"} toggleBg={toggleBg}/>
     </div>
   );
 }

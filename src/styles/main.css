@@ -1,0 +1,52 @@
+.main {
+  position: absolute;
+  top: 8vh;
+  left: 30%;
+  width: 40%;
+  color: var(--text-col);
+}
+
+input {
+  color: var(--text-col);
+  border: 0;
+  cursor: line-through;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+.title {
+  color: hsl(0, 0%, 98%);
+  font-weight: 700;
+}
+
+.newTodo {
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+  background: var(--bg-taskbox-col);
+  padding: 10px;
+  align-items: center;
+  border-radius: 5px;
+  height: 8%;
+}
+
+.list-container {
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 1rem;
+  border-radius: 5px;
+  background: var(--bg-taskbox-col);
+  height: 75%;
+}
+
+.task {
+  list-style: none;
+  height: 70px;
+  border-bottom: 1px solid var(--task-border);
+}
+
+.tasks-list {
+  padding: 0;
+}
