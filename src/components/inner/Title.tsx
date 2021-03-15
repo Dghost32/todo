@@ -6,9 +6,9 @@ interface IProps {
 let Title = ({ light, toggleBg }: IProps) => {
   let icon = getIcon(light);
   return (
-    <div className="row align-items-center justify-content-between">
-      <h1 className="title col-auto">T O D O</h1>
-      <i className="col-auto" onClick={toggleBg}>
+    <div className="row justify-content-between align-items-center ">
+      <h1 className="col-auto align-self-end text-left title">T O D O</h1>
+      <i className="col text-right " onClick={toggleBg}>
         {icon}
       </i>
     </div>

@@ -13,11 +13,6 @@
   }
 }
 
-.title {
-  color: hsl(0, 0%, 98%);
-  font-weight: 700;
-}
-
 .checkbox {
   margin-right: 1rem;
   border: 1px solid var(--task-border);
@@ -41,6 +36,13 @@
     hsl(280, 87%, 65%)
   );
 }
+
+.title {
+  margin-top: 20px;
+  color: hsl(0, 0%, 98%);
+  font-weight: 700;
+}
+
 
 
 

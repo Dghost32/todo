@@ -17,6 +17,17 @@ body {
   --bg-desktop: url("./images/bg-desktop-dark.jpg");
   --task-border: hsl(233, 14%, 35%);
   --footer-text-hover-col: hsl(236, 33%, 92%);
+  --shadow-col:  hsl(233, 14%, 35%);
+}
+
+.light {
+  --text-col: hsl(235, 19%, 35%);
+  --bg-col: hsl(236, 33%, 92%);
+  --bg-taskbox-col: hsl(0, 0%, 98%);
+  --bg-desktop: url("./images/bg-desktop-light.jpg");
+  --task-border: hsl(233, 11%, 84%);
+  --footer-text-hover-col: hsl(235, 24%, 19%);
+  --shadow-col: hsl(236, 13%, 75%);
 }
 
 @media only screen and (max-width: 950px) {
@@ -27,15 +38,6 @@ body {
   .light {
     --bg-desktop: url("./images/bg-mobile-light.jpg");
   }
-}
-
-.light {
-  --text-col: hsl(235, 19%, 35%);
-  --bg-col: hsl(236, 33%, 92%);
-  --bg-taskbox-col: hsl(0, 0%, 98%);
-  --bg-desktop: url("./images/bg-desktop-light.jpg");
-  --task-border: hsl(233, 11%, 84%);
-  --footer-text-hover-col: hsl(235, 24%, 19%);
 }
 
 .app {

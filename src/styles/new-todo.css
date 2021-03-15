@@ -1,5 +1,5 @@
 .newTodo {
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: -5px 5px var(--shadow-col);
   background: var(--bg-taskbox-col);
   padding: 10px;
   align-items: center;
