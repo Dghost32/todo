@@ -2,8 +2,8 @@ import React from "react";
 import NewTodoForm from "./inner/NewTodoForm";
 import TaskList from "./inner/TaskList";
 import "../styles/main.css";
+import "../styles/new-todo.css";
 import Footer from "./inner/Footer";
-
 
 interface IProps {
   light: boolean;
@@ -12,7 +12,7 @@ interface IProps {
 
 let Main = ({ light, toggleBg }: IProps) => {
   let icon = getIcon(light);
-  
+
   return (
     <div className="main container-fluid ">
       <div className="row align-items-center justify-content-between">

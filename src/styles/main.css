@@ -6,17 +6,9 @@
   color: var(--text-col);
 }
 
-.todo-input {
-  color: var(--text-col);
-  border: 0;
-  cursor: line-through;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-}
-
-.todo-input:focus {
-  outline: none;
+.title {
+  color: hsl(0, 0%, 98%);
+  font-weight: 700;
 }
 
 .checkbox {
@@ -43,18 +35,8 @@
   );
 }
 
-.title {
-  color: hsl(0, 0%, 98%);
-  font-weight: 700;
-}
 
-.newTodo {
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
-  background: var(--bg-taskbox-col);
-  padding: 10px;
-  align-items: center;
-  border-radius: 5px;
-  height: 8%;
-}
+
+
 
 

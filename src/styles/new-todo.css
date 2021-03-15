@@ -1,0 +1,21 @@
+.newTodo {
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+  background: var(--bg-taskbox-col);
+  padding: 10px;
+  align-items: center;
+  border-radius: 5px;
+  height: 8%;
+}
+
+.todo-input {
+  color: var(--text-col);
+  border: 0;
+  cursor: line-through;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.todo-input:focus {
+  outline: none;
+}
