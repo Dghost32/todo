@@ -1,17 +1,16 @@
 /* width */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 2px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: inherit;
+  background: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  border-radius: 2rem;
-  height: 2rem;
+  border-radius: 1rem;
   background: linear-gradient(
     to right,
     hsl(192, 100%, 67%),

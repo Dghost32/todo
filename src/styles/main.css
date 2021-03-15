@@ -1,9 +1,16 @@
 .main {
   position: absolute;
   top: 8vh;
-  left: 30%;
   width: 40%;
+  left: 30%;
   color: var(--text-col);
+}
+
+@media only screen and (max-width: 1330px) {
+  .main {
+    width: 80%;
+    left: 10%;
+  }
 }
 
 .title {

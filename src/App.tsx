@@ -25,7 +25,7 @@ function App() {
   };
 
   return (
-    <div className={`app ${bgType} h-100`}>
+    <div className={`app ${bgType}`}>
       <div className="app-image" />
       <Main light={bgType === "light"} toggleBg={toggleBg}/>
     </div>

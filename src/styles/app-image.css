@@ -1,10 +1,12 @@
 .app-image {
-  background-image: var(--bg-desktop);
+  background: var(--bg-desktop);
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
+  overflow: hidden;
   height: 35vh;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: 100%;
 }

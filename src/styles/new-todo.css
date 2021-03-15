@@ -3,8 +3,10 @@
   background: var(--bg-taskbox-col);
   padding: 10px;
   align-items: center;
-  border-radius: 5px;
-  height: 8%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  height: 60px;
 }
 
 .todo-input {

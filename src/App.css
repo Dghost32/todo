@@ -1,13 +1,13 @@
 :root {
   height: 100%;
-  border: 1px solid black;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size:18px
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
 }
 
 body {
+  font-family: "Josefin Sans", sans-serif;
   background-color: var(--bg-col);
-  transition: all 1s linear;
+  transition: all 0.5s linear;
 }
 
 .dark {
@@ -16,6 +16,17 @@ body {
   --bg-taskbox-col: hsl(235, 24%, 19%);
   --bg-desktop: url("./images/bg-desktop-dark.jpg");
   --task-border: hsl(233, 14%, 35%);
+  --footer-text-hover-col: hsl(236, 33%, 92%);
+}
+
+@media only screen and (max-width: 950px) {
+  .dark {
+    --bg-desktop: url("./images/bg-mobile-dark.jpg");
+  }
+
+  .light {
+    --bg-desktop: url("./images/bg-mobile-light.jpg");
+  }
 }
 
 .light {
@@ -24,6 +35,7 @@ body {
   --bg-taskbox-col: hsl(0, 0%, 98%);
   --bg-desktop: url("./images/bg-desktop-light.jpg");
   --task-border: hsl(233, 11%, 84%);
+  --footer-text-hover-col: hsl(235, 24%, 19%);
 }
 
 .app {
