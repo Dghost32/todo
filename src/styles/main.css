@@ -6,7 +6,7 @@
   color: var(--text-col);
 }
 
-input {
+.todo-input {
   color: var(--text-col);
   border: 0;
   cursor: line-through;
@@ -15,8 +15,32 @@ input {
   background: transparent;
 }
 
-input:focus {
+.todo-input:focus {
   outline: none;
+}
+
+.checkbox {
+  margin-right: 1rem;
+  border: 1px solid var(--task-border);
+  border-radius: 50%;
+  background: var(--bg-taskbox-col);
+  outline: none;
+  appearance: none;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.checkbox:hover {
+  border-color: darkgray;
+}
+
+.checkbox:checked {
+  outline: none;
+  background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
 }
 
 .title {
@@ -33,20 +57,4 @@ input:focus {
   height: 8%;
 }
 
-.list-container {
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
-  margin-top: 1rem;
-  border-radius: 5px;
-  background: var(--bg-taskbox-col);
-  height: 75%;
-}
 
-.task {
-  list-style: none;
-  height: 70px;
-  border-bottom: 1px solid var(--task-border);
-}
-
-.tasks-list {
-  padding: 0;
-}

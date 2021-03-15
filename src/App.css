@@ -1,3 +1,15 @@
+:root {
+  height: 100%;
+  border: 1px solid black;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size:18px
+}
+
+body {
+  background-color: var(--bg-col);
+  transition: all 1s linear;
+}
+
 .dark {
   --text-col: hsl(234, 39%, 85%);
   --bg-col: hsl(235, 21%, 11%);

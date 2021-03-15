@@ -4,6 +4,7 @@ import TaskList from "./inner/TaskList";
 import "../styles/main.css";
 import Footer from "./inner/Footer";
 
+
 interface IProps {
   light: boolean;
   toggleBg: any;
@@ -11,10 +12,10 @@ interface IProps {
 
 let Main = ({ light, toggleBg }: IProps) => {
   let icon = getIcon(light);
-
+  
   return (
     <div className="main container-fluid ">
-      <div className="row justify-content-between border align-items-center">
+      <div className="row align-items-center justify-content-between">
         <h1 className="title col-auto">T O D O</h1>
         <i className="col-auto" onClick={toggleBg}>
           {icon}
