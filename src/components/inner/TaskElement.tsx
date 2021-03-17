@@ -26,15 +26,32 @@ let TaskElement = ({ todo, toggleCheck, removeTodo }: Props) => {
       onMouseEnter={() => setHovering("absolute")}
       onMouseLeave={() => setHovering("none")}
     >
+      <div className="col-auto text-center checkbox-container">
+        <input
+          onClick={() => toggleCheck(todo)}
+          type="checkbox"
+          className={`checkbox ${todo.checked ? "checkbox-checked" : ""}`}
+        />
+        {todo.checked ? (
+          <svg
+            className="checked-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="11"
+            height="9"
+          >
+            <path
+              fill="none"
+              stroke="#FFF"
+              stroke-width="2"
+              d="M1 4.304L3.696 7l6-6"
+            />
+          </svg>
+        ) : (
+          ""
+        )}
+      </div>
       <input
-        onClick={() => toggleCheck(todo)}
-        type="checkbox"
-        className={`checkbox col-auto mx-2 ${
-          todo.checked ? "checkbox-checked" : ""
-        }`}
-      />
-      <input
-        className={`col-auto ${todo.checked ? "checked" : ""} todo-input`}
+        className={`col ${todo.checked ? "text-checked" : ""} todo-input`}
         type="text"
         onChange={handleChange}
         value={value}

@@ -35,7 +35,7 @@ let TaskList = ({ filterTodos, toggleCheck, removeTodo }: Props) => {
       {todos.length > 0 ? (
         renderTodos
       ) : (
-        <h1 className="no-todos">you've no todos, add a few.</h1>
+        <h1 className="no-todos">there are no todos.</h1>
       )}
     </div>
   );

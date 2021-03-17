@@ -16,7 +16,9 @@ let NewTodoForm = ({ addTodo }: Props) => {
       className="row mt-4 newTodo align-items-center justify-content-left"
       onSubmit={handleSubmit}
     >
-      <input type="checkbox" className="col-auto checkbox" />
+      <div className="checkbox-container">
+        <input type="checkbox" className="col-auto checkbox" />
+      </div>
       <input
         type="text"
         autoFocus
