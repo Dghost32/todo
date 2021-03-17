@@ -14,8 +14,10 @@ type Props = {
 
 let TaskElement = ({ todo, toggleCheck, removeTodo }: Props) => {
   let [hovering, setHovering] = useState("none");
+  let [value, setValue] = useState(todo.value);
   let handleChange = (e: any) => {
     todo.value = e.target.value;
+    setValue(todo.value);
   };
 
   return (
@@ -35,7 +37,7 @@ let TaskElement = ({ todo, toggleCheck, removeTodo }: Props) => {
         className={`col-auto ${todo.checked ? "checked" : ""} todo-input`}
         type="text"
         onChange={handleChange}
-        value={todo.value}
+        value={value}
       />
       <svg
         onClick={() => removeTodo(todo)}
