@@ -1,10 +1,21 @@
 import React from "react";
 
-let NewTodoForm = () => {
+type Todo = {
+  checked: boolean;
+  value: string;
+};
+
+type Props = {
+  setTodos: Function;
+  todos: Array<Todo>;
+};
+
+let NewTodoForm = ({ setTodos, todos }: Props) => {
   let handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log(e.target.values);
-    console.log("please print this");
+    setTodos([...todos, { checked: false, value: e.target.elements[1].value }]);
+    console.log("new: ", e.target.elements[1].value);
+    e.target.elements[1].value = "";
   };
 
   return (
@@ -13,7 +24,13 @@ let NewTodoForm = () => {
       onSubmit={handleSubmit}
     >
       <input type="checkbox" className="col-auto checkbox" />
-      <input type="text" autoFocus className="col-10 todo-input" placeholder="Enter a new task"/>
+      <input
+        type="text"
+        autoFocus
+        id="new-todo"
+        className="col-10 todo-input"
+        placeholder="Enter a new todo"
+      />
     </form>
   );
 };

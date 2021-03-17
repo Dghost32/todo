@@ -17,9 +17,15 @@
   border-bottom: 1px solid var(--task-border);
 }
 
-.no-tasks {
+.no-todos {
+  text-align: center;
   margin-top: 50px;
   width: 100%;
   font-size: 1rem;
   font-weight: 700;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: gray;
 }
