@@ -20,7 +20,11 @@ function App() {
       if (t !== todo) return t;
       return { ...t, checked: !t.checked };
     });
-    /* let ts = [...todos, {}] */
+    setTodos(ts);
+  };
+
+  let removeTodo = (todo: Todo) => {
+    let ts = todos.filter((t) => t !== todo);
     setTodos(ts);
   };
 
@@ -28,8 +32,8 @@ function App() {
     ? todos.map((todo) => todo)
     : filter === "active"
     ? todos.filter((todo) => todo.checked === false)
-      : todos.filter((todo) => todo.checked === true);
-  
+    : todos.filter((todo) => todo.checked === true);
+
   if (body) body.classList.add("dark");
   const toggleBg = () => {
     if (body) {
@@ -48,6 +52,7 @@ function App() {
     <div className={`app ${bgType}`}>
       <div className="app-image" />
       <Main
+        removeTodo={removeTodo}
         toggleCheck={toggleCheckTodo}
         filter={filter}
         setFilter={setFilter}

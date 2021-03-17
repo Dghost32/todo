@@ -12,23 +12,40 @@ type Props = {
   todos: Array<Todo>;
   filter: string | undefined;
   toggleCheck: Function;
+  removeTodo: Function;
 };
 
-let TaskList = ({ todos, filter, toggleCheck }: Props) => {
+let TaskList = ({ todos, filter, toggleCheck, removeTodo }: Props) => {
+  let id = 0;
   let renderTodos = !filter
     ? todos.map((todo) => (
-        <TaskElement key={todo.value} toggleCheck={toggleCheck} todo={todo} />
+        <TaskElement
+          key={id++}
+          removeTodo={removeTodo}
+          toggleCheck={toggleCheck}
+          todo={todo}
+        />
       ))
     : filter === "active"
     ? todos
         .filter((todo) => todo.checked === false)
         .map((todo) => (
-          <TaskElement key={todo.value} toggleCheck={toggleCheck} todo={todo} />
+          <TaskElement
+            key={id++}
+            removeTodo={removeTodo}
+            toggleCheck={toggleCheck}
+            todo={todo}
+          />
         ))
     : todos
         .filter((todo) => todo.checked === true)
         .map((todo) => (
-          <TaskElement key={todo.value} toggleCheck={toggleCheck} todo={todo} />
+          <TaskElement
+            key={id++}
+            removeTodo={removeTodo}
+            toggleCheck={toggleCheck}
+            todo={todo}
+          />
         ));
 
   return (

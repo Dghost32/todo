@@ -20,6 +20,7 @@ type Props = {
   todos: Array<Todo>;
   setTodos: Function;
   toggleCheck: Function;
+  removeTodo: Function;
 };
 
 let Main = ({
@@ -30,13 +31,19 @@ let Main = ({
   filter,
   setFilter,
   toggleCheck,
+  removeTodo,
 }: Props) => {
   return (
     <div className="main container-fluid ">
       <Title light={light} toggleBg={toggleBg} />
       <NewTodoForm setTodos={setTodos} todos={todos} />
       <div className="row">
-        <TaskList toggleCheck={toggleCheck} todos={todos} filter={filter} />
+        <TaskList
+          removeTodo={removeTodo}
+          toggleCheck={toggleCheck}
+          todos={todos}
+          filter={filter}
+        />
         <Footer numTodos={todos.length} filter={filter} setFilter={setFilter} />
         <PhoneFooter filter={filter} setFilter={setFilter} />
       </div>

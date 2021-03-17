@@ -27,7 +27,6 @@ let NewTodoForm = ({ setTodos, todos }: Props) => {
       <input
         type="text"
         autoFocus
-        id="new-todo"
         className="col-10 todo-input"
         placeholder="Enter a new todo"
       />

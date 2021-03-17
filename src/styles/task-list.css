@@ -29,3 +29,10 @@
   text-decoration: line-through;
   color: gray;
 }
+
+.del-todo {
+  position: absolute;
+  right:15px;
+  top: auto;
+}
+
