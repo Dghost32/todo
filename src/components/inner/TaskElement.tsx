@@ -42,7 +42,7 @@ let TaskElement = ({ todo, toggleCheck, removeTodo }: Props) => {
             <path
               fill="none"
               stroke="#FFF"
-              stroke-width="2"
+              strokeWidth="2"
               d="M1 4.304L3.696 7l6-6"
             />
           </svg>
