@@ -1,20 +1,13 @@
 import React from "react";
 
-type Todo = {
-  checked: boolean;
-  value: string;
-};
-
 type Props = {
-  setTodos: Function;
-  todos: Array<Todo>;
+  addTodo: Function;
 };
 
-let NewTodoForm = ({ setTodos, todos }: Props) => {
+let NewTodoForm = ({ addTodo }: Props) => {
   let handleSubmit = (e: any) => {
     e.preventDefault();
-    setTodos([...todos, { checked: false, value: e.target.elements[1].value }]);
-    console.log("new: ", e.target.elements[1].value);
+    addTodo({ checked: false, value: e.target.elements[1].value });
     e.target.elements[1].value = "";
   };
 

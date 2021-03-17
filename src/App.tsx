@@ -15,7 +15,7 @@ function App() {
   let [todos, setTodos]: [Array<Todo>, Function] = useState([]);
   let [filter, setFilter]: [string | undefined, Function] = useState(undefined);
 
-  let toggleCheckTodo = (todo: Todo) => {
+  const toggleCheckTodo = (todo: Todo) => {
     let ts = todos.map((t) => {
       if (t !== todo) return t;
       return { ...t, checked: !t.checked };
@@ -23,16 +23,25 @@ function App() {
     setTodos(ts);
   };
 
-  let removeTodo = (todo: Todo) => {
+  const removeTodo = (todo: Todo) => {
     let ts = todos.filter((t) => t !== todo);
     setTodos(ts);
   };
 
-  let filteredTodos = !filter
-    ? todos.map((todo) => todo)
-    : filter === "active"
-    ? todos.filter((todo) => todo.checked === false)
-    : todos.filter((todo) => todo.checked === true);
+  let clearCompletedTodos = () => {
+    setTodos(todos.filter((todo) => !todo.checked));
+  };
+
+  const addTodo = (todo: Todo) => {
+    setTodos([...todos, todo]);
+  };
+
+  const filterTodos = () => {
+    if (!filter) return todos.map((todo) => todo);
+    if (filter === "active")
+      return todos.filter((todo) => todo.checked === false);
+    return todos.filter((todo) => todo.checked === true);
+  };
 
   if (body) body.classList.add("dark");
   const toggleBg = () => {
@@ -52,12 +61,14 @@ function App() {
     <div className={`app ${bgType}`}>
       <div className="app-image" />
       <Main
+        clearCompletedTodos={clearCompletedTodos}
+        addTodo={addTodo}
         removeTodo={removeTodo}
         toggleCheck={toggleCheckTodo}
+        filterTodos={filterTodos}
         filter={filter}
         setFilter={setFilter}
-        setTodos={setTodos}
-        todos={filteredTodos}
+        todos={todos}
         light={bgType === "light"}
         toggleBg={toggleBg}
       />

@@ -28,7 +28,7 @@
   border-color: darkgray;
 }
 
-.checkbox:checked {
+.checkbox-checked {
   outline: none;
   background: linear-gradient(
     to right,

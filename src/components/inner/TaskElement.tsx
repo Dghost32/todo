@@ -14,11 +14,10 @@ type Props = {
 
 let TaskElement = ({ todo, toggleCheck, removeTodo }: Props) => {
   let [hovering, setHovering] = useState("none");
-  let [text, setText] = useState(todo.value);
   let handleChange = (e: any) => {
-    setText(e.target.value);
-    todo.value = text;
+    todo.value = e.target.value;
   };
+
   return (
     <div
       className="row task align-items-center"
@@ -28,13 +27,15 @@ let TaskElement = ({ todo, toggleCheck, removeTodo }: Props) => {
       <input
         onClick={() => toggleCheck(todo)}
         type="checkbox"
-        className="checkbox col-auto mx-2"
+        className={`checkbox col-auto mx-2 ${
+          todo.checked ? "checkbox-checked" : ""
+        }`}
       />
       <input
         className={`col-auto ${todo.checked ? "checked" : ""} todo-input`}
         type="text"
         onChange={handleChange}
-        value={text}
+        value={todo.value}
       />
       <svg
         onClick={() => removeTodo(todo)}

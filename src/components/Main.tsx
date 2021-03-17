@@ -18,16 +18,20 @@ type Props = {
   light: boolean;
   toggleBg: any;
   todos: Array<Todo>;
-  setTodos: Function;
   toggleCheck: Function;
   removeTodo: Function;
+  addTodo: Function;
+  filterTodos: Function;
+  clearCompletedTodos: Function;
 };
 
 let Main = ({
+  clearCompletedTodos,
+  filterTodos,
+  addTodo,
   light,
   toggleBg,
   todos,
-  setTodos,
   filter,
   setFilter,
   toggleCheck,
@@ -36,15 +40,19 @@ let Main = ({
   return (
     <div className="main container-fluid ">
       <Title light={light} toggleBg={toggleBg} />
-      <NewTodoForm setTodos={setTodos} todos={todos} />
+      <NewTodoForm addTodo={addTodo} />
       <div className="row">
         <TaskList
+          filterTodos={filterTodos}
           removeTodo={removeTodo}
           toggleCheck={toggleCheck}
-          todos={todos}
-          filter={filter}
         />
-        <Footer numTodos={todos.length} filter={filter} setFilter={setFilter} />
+        <Footer
+          numTodos={todos.filter((todo) => !todo.checked).length}
+          filter={filter}
+          setFilter={setFilter}
+          clearCompletedTodos={clearCompletedTodos}
+        />
         <PhoneFooter filter={filter} setFilter={setFilter} />
       </div>
     </div>

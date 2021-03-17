@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TaskElement from "./TaskElement";
 import "../../styles/scrollbar.css";
 import "../../styles/task-list.css";
@@ -9,44 +9,26 @@ type Todo = {
 };
 
 type Props = {
-  todos: Array<Todo>;
-  filter: string | undefined;
   toggleCheck: Function;
   removeTodo: Function;
+  filterTodos: Function;
 };
 
-let TaskList = ({ todos, filter, toggleCheck, removeTodo }: Props) => {
-  let id = 0;
-  let renderTodos = !filter
-    ? todos.map((todo) => (
-        <TaskElement
-          key={id++}
-          removeTodo={removeTodo}
-          toggleCheck={toggleCheck}
-          todo={todo}
-        />
-      ))
-    : filter === "active"
-    ? todos
-        .filter((todo) => todo.checked === false)
-        .map((todo) => (
-          <TaskElement
-            key={id++}
-            removeTodo={removeTodo}
-            toggleCheck={toggleCheck}
-            todo={todo}
-          />
-        ))
-    : todos
-        .filter((todo) => todo.checked === true)
-        .map((todo) => (
-          <TaskElement
-            key={id++}
-            removeTodo={removeTodo}
-            toggleCheck={toggleCheck}
-            todo={todo}
-          />
-        ));
+let TaskList = ({ filterTodos, toggleCheck, removeTodo }: Props) => {
+  let [todos, setTodos] = useState([]);
+  let renderTodos = [];
+  useEffect(() => {
+    setTodos(filterTodos());
+  }, [filterTodos]);
+
+  renderTodos = todos.map((todo: Todo) => (
+    <TaskElement
+      key={todo.value + `${Math.random() * Math.random()}`}
+      toggleCheck={toggleCheck}
+      todo={todo}
+      removeTodo={removeTodo}
+    />
+  ));
 
   return (
     <div className="col-12 list-container">

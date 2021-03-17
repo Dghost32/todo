@@ -5,9 +5,10 @@ type Props = {
   setFilter: Function;
   filter: string | undefined;
   numTodos: number;
+  clearCompletedTodos: Function;
 };
 
-let Footer = ({ setFilter, filter, numTodos }: Props) => {
+let Footer = ({ clearCompletedTodos, setFilter, filter, numTodos }: Props) => {
   return (
     <div className="col-12 footer">
       <div className="row align-items-center justify-content-between footer-row">
@@ -40,7 +41,10 @@ let Footer = ({ setFilter, filter, numTodos }: Props) => {
             </div>
           </div>
         </div>
-        <div className="col-auto text-right text">
+        <div
+          className="col-auto text-right text"
+          onClick={() => clearCompletedTodos()}
+        >
           clear <span className="d-none d-sm-inline">completed</span>
         </div>
       </div>
