@@ -34,6 +34,7 @@ let TaskElement = ({ todo, toggleCheck, removeTodo }: Props) => {
         />
         {todo.checked ? (
           <svg
+            onClick={() => toggleCheck(todo)}
             className="checked-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="11"

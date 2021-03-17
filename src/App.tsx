@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useLayoutEffect } from "react";
 import Main from "./components/Main";
 /* styles */
 import "./App.css";
@@ -14,6 +15,15 @@ function App() {
   const [bgType, setBgType] = useState("dark");
   let [todos, setTodos]: [Array<Todo>, Function] = useState([]);
   let [filter, setFilter]: [string | undefined, Function] = useState(undefined);
+  let localStorage = window.localStorage;
+  let db = window.localStorage.getItem("todos");
+  useLayoutEffect(() => {
+    if (db) setTodos(JSON.parse(db));
+  }, []);
+
+  useLayoutEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const toggleCheckTodo = (todo: Todo) => {
     let ts = todos.map((t) => {
