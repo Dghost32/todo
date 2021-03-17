@@ -21,6 +21,7 @@ type Props = {
   toggleCheck: Function;
   removeTodo: Function;
   addTodo: Function;
+  updateTodo: Function;
   filterTodos: Function;
   clearCompletedTodos: Function;
 };
@@ -29,6 +30,7 @@ let Main = ({
   clearCompletedTodos,
   filterTodos,
   addTodo,
+  updateTodo,
   light,
   toggleBg,
   todos,
@@ -43,6 +45,7 @@ let Main = ({
       <NewTodoForm addTodo={addTodo} />
       <div className="row">
         <TaskList
+          updateTodo={updateTodo}
           filterTodos={filterTodos}
           removeTodo={removeTodo}
           toggleCheck={toggleCheck}

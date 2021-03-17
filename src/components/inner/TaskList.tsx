@@ -12,9 +12,15 @@ type Props = {
   toggleCheck: Function;
   removeTodo: Function;
   filterTodos: Function;
+  updateTodo: Function;
 };
 
-let TaskList = ({ filterTodos, toggleCheck, removeTodo }: Props) => {
+let TaskList = ({
+  updateTodo,
+  filterTodos,
+  toggleCheck,
+  removeTodo,
+}: Props) => {
   let [todos, setTodos] = useState([]);
   let renderTodos = [];
   useEffect(() => {
@@ -26,6 +32,7 @@ let TaskList = ({ filterTodos, toggleCheck, removeTodo }: Props) => {
       key={todo.value + `${Math.random() * Math.random()}`}
       toggleCheck={toggleCheck}
       todo={todo}
+      updateTodo={updateTodo}
       removeTodo={removeTodo}
     />
   ));

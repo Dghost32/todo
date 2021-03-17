@@ -10,14 +10,25 @@ type Props = {
   toggleCheck: Function;
   todo: Todo;
   removeTodo: Function;
+  updateTodo: Function;
 };
 
-let TaskElement = ({ todo, toggleCheck, removeTodo }: Props) => {
+let TaskElement = ({ updateTodo, todo, toggleCheck, removeTodo }: Props) => {
   let [hovering, setHovering] = useState("none");
   let [value, setValue] = useState(todo.value);
+  let [oldTodo, setOldTodo]: [Todo | undefined, Function] = useState(undefined);
   let handleChange = (e: any) => {
     todo.value = e.target.value;
     setValue(todo.value);
+  };
+
+  let onFocus = () => {
+    setOldTodo(todo);
+  };
+
+  let onBlur = () => {
+    updateTodo(oldTodo, todo);
+    setOldTodo(undefined);
   };
 
   return (
@@ -54,6 +65,8 @@ let TaskElement = ({ todo, toggleCheck, removeTodo }: Props) => {
       <input
         className={`col ${todo.checked ? "text-checked" : ""} todo-input`}
         type="text"
+        onFocus={onFocus}
+        onBlur={onBlur}
         onChange={handleChange}
         value={value}
       />

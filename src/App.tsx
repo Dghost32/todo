@@ -17,6 +17,7 @@ function App() {
   let [filter, setFilter]: [string | undefined, Function] = useState(undefined);
   let localStorage = window.localStorage;
   let db = window.localStorage.getItem("todos");
+
   useLayoutEffect(() => {
     if (db) setTodos(JSON.parse(db));
   }, []);
@@ -33,6 +34,19 @@ function App() {
     setTodos(ts);
   };
 
+  const addTodo = (todo: Todo) => {
+    setTodos([...todos, todo]);
+  };
+
+  let updateTodo = (oldTodo: Todo, newTodo: Todo) => {
+    setTodos(
+      todos.map((t) => {
+        if (t !== oldTodo) return t;
+        return newTodo;
+      })
+    );
+  };
+
   const removeTodo = (todo: Todo) => {
     let ts = todos.filter((t) => t !== todo);
     setTodos(ts);
@@ -40,10 +54,6 @@ function App() {
 
   let clearCompletedTodos = () => {
     setTodos(todos.filter((todo) => !todo.checked));
-  };
-
-  const addTodo = (todo: Todo) => {
-    setTodos([...todos, todo]);
   };
 
   const filterTodos = () => {
@@ -74,6 +84,7 @@ function App() {
         clearCompletedTodos={clearCompletedTodos}
         addTodo={addTodo}
         removeTodo={removeTodo}
+        updateTodo={updateTodo}
         toggleCheck={toggleCheckTodo}
         filterTodos={filterTodos}
         filter={filter}
