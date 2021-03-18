@@ -1,14 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useLayoutEffect } from "react";
+/* components */
 import Main from "./components/Main";
+/* types */
+import { Todo } from "./types/types";
 /* styles */
 import "./App.css";
 import "./styles/app-image.css";
-
-type Todo = {
-  checked: boolean;
-  value: string;
-};
 
 function App() {
   const body = document.getElementById("body");

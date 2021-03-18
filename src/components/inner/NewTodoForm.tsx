@@ -1,11 +1,8 @@
 import React from "react";
-
-type Props = {
-  addTodo: Function;
-};
+import { NewTodoFormProps as Props } from "../../types/types";
 
 let NewTodoForm = ({ addTodo }: Props) => {
-  let handleSubmit = (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     addTodo({ checked: false, value: e.target.elements[1].value });
     e.target.elements[1].value = "";

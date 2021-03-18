@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
+/* components */
 import TaskElement from "./TaskElement";
+/* types */
+import { Todo, TaskListProps as Props } from "../../types/types";
+/* styles */
 import "../../styles/scrollbar.css";
 import "../../styles/task-list.css";
-
-type Todo = {
-  checked: boolean;
-  value: string;
-};
-
-type Props = {
-  toggleCheck: Function;
-  removeTodo: Function;
-  filterTodos: Function;
-  updateTodo: Function;
-};
 
 let TaskList = ({
   updateTodo,

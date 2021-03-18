@@ -1,30 +1,15 @@
 import React from "react";
+/* components */
 import Title from "./inner/Title";
 import NewTodoForm from "./inner/NewTodoForm";
 import TaskList from "./inner/TaskList";
 import Footer from "./inner/Footer";
 import PhoneFooter from "./inner/PhoneFooter";
+/* types */
+import { MainProps as Props } from "../types/types";
+/* styles */
 import "../styles/main.css";
 import "../styles/new-todo.css";
-
-type Todo = {
-  checked: boolean;
-  value: string;
-};
-
-type Props = {
-  filter: string | undefined;
-  setFilter: Function;
-  light: boolean;
-  toggleBg: any;
-  todos: Array<Todo>;
-  toggleCheck: Function;
-  removeTodo: Function;
-  addTodo: Function;
-  updateTodo: Function;
-  filterTodos: Function;
-  clearCompletedTodos: Function;
-};
 
 let Main = ({
   clearCompletedTodos,

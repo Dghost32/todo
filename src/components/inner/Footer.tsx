@@ -1,12 +1,8 @@
 import React from "react";
+/* types */
+import { FooterProps as Props } from "../../types/types";
+/* styles */
 import "../../styles/footer.css";
-
-type Props = {
-  setFilter: Function;
-  filter: string | undefined;
-  numTodos: number;
-  clearCompletedTodos: Function;
-};
 
 let Footer = ({ clearCompletedTodos, setFilter, filter, numTodos }: Props) => {
   return (

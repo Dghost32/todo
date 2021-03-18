@@ -1,9 +1,7 @@
-interface IProps {
-  light: boolean;
-  toggleBg: any;
-}
+import React from "react";
+import { TitleProps as Props } from "../../types/types";
 
-let Title = ({ light, toggleBg }: IProps) => {
+let Title = ({ light, toggleBg }: Props) => {
   let icon = getIcon(light);
   return (
     <div className="row justify-content-between align-items-center ">

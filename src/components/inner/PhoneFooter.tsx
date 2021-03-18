@@ -1,10 +1,8 @@
 import React from "react";
+/* types */
+import { PhoneFooterProps as Props } from "../../types/types";
+/* styles */
 import "../../styles/footer.css";
-
-type Props = {
-  setFilter: Function;
-  filter: string | undefined;
-};
 
 let PhoneFooter = ({ setFilter, filter }: Props) => (
   <div className="phone-footer col-12">
