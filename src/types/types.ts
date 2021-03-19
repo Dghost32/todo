@@ -10,6 +10,7 @@ type MainProps = {
   toggleBg: Function;
   todos: Array<Todo>;
   setTodos: Function;
+  checkAllTodos: Function;
   toggleCheck: Function;
   removeTodo: Function;
   addTodo: Function;

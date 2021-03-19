@@ -13,7 +13,7 @@ function App() {
   const body = document.getElementById("body");
   const [bgType, setBgType] = useState("dark");
   let [todos, setTodos]: [Array<Todo>, Function] = useState([]);
-  let [filter, setFilter]: [string | undefined, Function] = useState("active");
+  let [filter, setFilter]: [string | undefined, Function] = useState(undefined);
   let [alertType, setAlertType] = useState("none");
   let localStorage = window.localStorage;
   let db = window.localStorage.getItem("todos");
@@ -72,6 +72,10 @@ function App() {
     return todos.filter((todo) => todo.checked === true);
   };
 
+  const checkAllTodos = () => {
+    setTodos(todos.map((todo) => ({ ...todo, checked: true })));
+  };
+
   if (body) body.classList.add("dark");
   const toggleBg = () => {
     if (body) {
@@ -107,6 +111,7 @@ function App() {
         updateTodo={updateTodo}
         toggleCheck={toggleCheckTodo}
         filterTodos={filterTodos}
+        checkAllTodos={checkAllTodos}
         filter={filter}
         setFilter={setFilter}
         todos={todos}
