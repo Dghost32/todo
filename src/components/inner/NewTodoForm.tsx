@@ -17,6 +17,7 @@ let NewTodoForm = ({ addTodo }: Props) => {
         <input type="checkbox" className="col-auto checkbox" />
       </div>
       <input
+        id="newTodoInput"
         type="text"
         autoFocus
         className="col-10 todo-input"

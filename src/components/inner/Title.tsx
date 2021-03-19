@@ -2,20 +2,24 @@ import React from "react";
 import { TitleProps as Props } from "../../types/types";
 
 let Title = ({ light, toggleBg }: Props) => {
-  let icon = getIcon(light);
+  let icon = getIcon(light, toggleBg);
   return (
     <div className="row justify-content-between align-items-center ">
       <h1 className="col-auto align-self-end text-left title">T O D O</h1>
-      <i className="col text-right " onClick={toggleBg}>
-        {icon}
-      </i>
+      <i className="col text-right ">{icon}</i>
     </div>
   );
 };
 
-let getIcon = (light: boolean) => {
+let getIcon = (light: boolean, toggleBg: Function) => {
   let icon = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+    <svg
+      onClick={() => toggleBg()}
+      className="title-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="26"
+      height="26"
+    >
       <path
         fill="#FFF"
         fillRule="evenodd"
@@ -25,7 +29,13 @@ let getIcon = (light: boolean) => {
   );
   if (light)
     icon = (
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+      <svg
+        onClick={() => toggleBg()}
+        className="title-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="26"
+        height="26"
+      >
         <path
           fill="#FFF"
           fillRule="evenodd"

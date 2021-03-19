@@ -2,7 +2,7 @@ import React from "react";
 /* components */
 import Title from "./inner/Title";
 import NewTodoForm from "./inner/NewTodoForm";
-import TaskList from "./inner/TaskList";
+import TodoList from "./inner/TodoList";
 import Footer from "./inner/Footer";
 import PhoneFooter from "./inner/PhoneFooter";
 /* types */
@@ -11,37 +11,27 @@ import { MainProps as Props } from "../types/types";
 import "../styles/main.css";
 import "../styles/new-todo.css";
 
-let Main = ({
-  clearCompletedTodos,
-  filterTodos,
-  addTodo,
-  updateTodo,
-  light,
-  toggleBg,
-  todos,
-  filter,
-  setFilter,
-  toggleCheck,
-  removeTodo,
-}: Props) => {
+let Main = (props: Props) => {
   return (
     <div className="main container-fluid ">
-      <Title light={light} toggleBg={toggleBg} />
-      <NewTodoForm addTodo={addTodo} />
+      <Title light={props.light} toggleBg={props.toggleBg} />
+      <NewTodoForm addTodo={props.addTodo} />
       <div className="row">
-        <TaskList
-          updateTodo={updateTodo}
-          filterTodos={filterTodos}
-          removeTodo={removeTodo}
-          toggleCheck={toggleCheck}
+        <TodoList
+          todos={props.todos}
+          setTodos={props.setTodos}
+          updateTodo={props.updateTodo}
+          filterTodos={props.filterTodos}
+          removeTodo={props.removeTodo}
+          toggleCheck={props.toggleCheck}
         />
         <Footer
-          numTodos={todos.filter((todo) => !todo.checked).length}
-          filter={filter}
-          setFilter={setFilter}
-          clearCompletedTodos={clearCompletedTodos}
+          numTodos={props.todos.filter((todo) => !todo.checked).length}
+          filter={props.filter}
+          setFilter={props.setFilter}
+          clearCompletedTodos={props.clearCompletedTodos}
         />
-        <PhoneFooter filter={filter} setFilter={setFilter} />
+        <PhoneFooter filter={props.filter} setFilter={props.setFilter} />
       </div>
     </div>
   );

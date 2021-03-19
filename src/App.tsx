@@ -7,12 +7,14 @@ import { Todo } from "./types/types";
 /* styles */
 import "./App.css";
 import "./styles/app-image.css";
+import "./styles/alerts.css";
 
 function App() {
   const body = document.getElementById("body");
   const [bgType, setBgType] = useState("dark");
   let [todos, setTodos]: [Array<Todo>, Function] = useState([]);
-  let [filter, setFilter]: [string | undefined, Function] = useState(undefined);
+  let [filter, setFilter]: [string | undefined, Function] = useState("active");
+  let [alertType, setAlertType] = useState("none");
   let localStorage = window.localStorage;
   let db = window.localStorage.getItem("todos");
 
@@ -33,10 +35,17 @@ function App() {
   };
 
   const addTodo = (todo: Todo) => {
-    setTodos([...todos, todo]);
+    let verify = todos.filter((t) => t.value === todo.value).length === 0;
+    if (verify) {
+      setTodos([...todos, todo]);
+      setAlertType("add");
+      setTimeout(() => setAlertType("none"), 600);
+    }
   };
 
   let updateTodo = (oldTodo: Todo, newTodo: Todo) => {
+    setAlertType("edit");
+    setTimeout(() => setAlertType("none"), 500);
     setTodos(
       todos.map((t) => {
         if (t !== oldTodo) return t;
@@ -46,6 +55,8 @@ function App() {
   };
 
   const removeTodo = (todo: Todo) => {
+    setAlertType("remove");
+    setTimeout(() => setAlertType("none"), 500);
     let ts = todos.filter((t) => t !== todo);
     setTodos(ts);
   };
@@ -76,8 +87,19 @@ function App() {
   };
 
   return (
-    <div className={`app ${bgType}`}>
+    <div id="app" className={`app ${bgType}`}>
       <div className="app-image" />
+      <div className={`s-alert alert-${alertType}`}>
+        <h5 className="alert-text">
+          {alertType === "add"
+            ? "task has been added"
+            : alertType === "edit"
+            ? "task has been edited"
+            : alertType === "remove"
+            ? "task has been removed"
+            : ""}
+        </h5>
+      </div>
       <Main
         clearCompletedTodos={clearCompletedTodos}
         addTodo={addTodo}
@@ -88,6 +110,7 @@ function App() {
         filter={filter}
         setFilter={setFilter}
         todos={todos}
+        setTodos={setTodos}
         light={bgType === "light"}
         toggleBg={toggleBg}
       />

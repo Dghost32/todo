@@ -9,6 +9,7 @@ type MainProps = {
   light: boolean;
   toggleBg: Function;
   todos: Array<Todo>;
+  setTodos: Function;
   toggleCheck: Function;
   removeTodo: Function;
   addTodo: Function;
@@ -27,9 +28,19 @@ type NewTodoFormProps = {
 };
 
 type TaskListProps = {
+  todos: Array<Todo>;
+  setTodos: Function;
   toggleCheck: Function;
   removeTodo: Function;
   filterTodos: Function;
+  updateTodo: Function;
+};
+
+type TaskElementProps = {
+  toggleCheck: Function;
+  todo: Todo;
+  index: number;
+  removeTodo: Function;
   updateTodo: Function;
 };
 
@@ -51,6 +62,7 @@ export type {
   TitleProps,
   NewTodoFormProps,
   TaskListProps,
+  TaskElementProps,
   FooterProps,
   PhoneFooterProps,
 };

@@ -1,0 +1,36 @@
+.alert-text {
+  margin-top: 15px;
+  color: var(--text-col);
+}
+
+.s-alert {
+  text-align: center;
+  position: absolute;
+  right: 35%;
+  top: 8vh;
+  border-radius: 10px;
+  font-weight: 700;
+  z-index: 1;
+  width: 30%;
+  background-color: var(--shadow-col);
+}
+
+.alert-none {
+  background-color: transparent;
+  text-align: center;
+  display: none;
+}
+
+@media only screen and (max-width: 1330px) {
+  .s-alert {
+    right: 20%;
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .s-alert {
+    right: 10%;
+    width: 80%;
+  }
+}

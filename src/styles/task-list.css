@@ -7,13 +7,10 @@
   box-shadow: -5px 5px var(--shadow-col);
 }
 
-.tasks-list {
-  border: 1px solid transparent;
-  border-radius: 1rem;
-}
-
-.task {
+.todo {
   height: 70px;
+  background-color: var(--bg-taskbox-col);
+  border-radius: 5px;
   border-bottom: 1px solid var(--task-border);
 }
 
@@ -37,6 +34,13 @@
 
 .checked-icon {
   position: absolute;
-  left: 30%;
-  top: 40%
+  right: 0;
+  top: 40%;
+  transition: transform 500ms ease;
+  margin-right: 5px;
+}
+
+.editing {
+  transition: transform 300ms ease;
+  transform: rotate(45deg);
 }
