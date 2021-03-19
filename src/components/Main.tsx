@@ -17,9 +17,6 @@ let Main = (props: Props) => {
       <Title light={props.light} toggleBg={props.toggleBg} />
       <NewTodoForm addTodo={props.addTodo} />
       <div className="row">
-        <div className="check-all" onClick={() => props.checkAllTodos()}>
-          check all
-        </div>
         <TodoList
           todos={props.todos}
           setTodos={props.setTodos}
