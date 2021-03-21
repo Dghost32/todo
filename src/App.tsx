@@ -39,8 +39,10 @@ function App() {
     if (verify) {
       setTodos([...todos, todo]);
       setAlertType("add");
-      setTimeout(() => setAlertType("none"), 600);
+      return setTimeout(() => setAlertType("none"), 600);
     }
+    setAlertType("warning");
+    setTimeout(() => setAlertType("none"), 500);
   };
 
   let updateTodo = (oldTodo: Todo, newTodo: Todo) => {
@@ -101,6 +103,8 @@ function App() {
             ? "task has been edited"
             : alertType === "remove"
             ? "task has been removed"
+            : alertType==="warning"
+            ? "task is already added"
             : ""}
         </h5>
       </div>
