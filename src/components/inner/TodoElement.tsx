@@ -4,7 +4,7 @@ import { Draggable } from "react-beautiful-dnd";
 /* types */
 import { Todo, TaskElementProps as Props } from "../../types/types";
 /* styles */
-import "../../styles/task-list.css";
+import "../../styles/todos-list.css";
 
 let TodoElement = ({
   updateTodo,

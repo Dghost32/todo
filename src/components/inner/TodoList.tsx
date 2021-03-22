@@ -1,12 +1,14 @@
-import React from "react";
+import { useContext } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 /* components */
 import TodoElement from "./TodoElement";
+/* context */
+import AppContext from "../../context/AppContext";
 /* types */
-import { Todo, TaskListProps as Props } from "../../types/types";
+import { Todo } from "../../types/types";
 /* styles */
 import "../../styles/scrollbar.css";
-import "../../styles/task-list.css";
+import "../../styles/todos-list.css";
 
 const reorder = (list: Array<Todo>, startIndex: number, endIndex: number) => {
   const result = Array.from(list);
@@ -16,19 +18,25 @@ const reorder = (list: Array<Todo>, startIndex: number, endIndex: number) => {
   return result;
 };
 
-let TodoList = (props: Props) => {
-  let renderTodos = props
-    .filterTodos()
-    .map((todo: Todo, index: number) => (
-      <TodoElement
-        index={index}
-        key={todo.value + `${Math.random() * Math.random()}`}
-        toggleCheck={props.toggleCheck}
-        todo={todo}
-        updateTodo={props.updateTodo}
-        removeTodo={props.removeTodo}
-      />
-    ));
+let TodoList = () => {
+  let {
+    filterTodos,
+    toggleCheckTodo,
+    updateTodo,
+    removeTodo,
+    setTodos,
+    todos,
+  } = useContext(AppContext);
+  let renderTodos = filterTodos().map((todo: Todo, index: number) => (
+    <TodoElement
+      index={index}
+      key={todo.value + `${Math.random() * Math.random()}`}
+      toggleCheck={toggleCheckTodo}
+      todo={todo}
+      updateTodo={updateTodo}
+      removeTodo={removeTodo}
+    />
+  ));
 
   function onDragEnd(result: any) {
     if (!result.destination) {
@@ -37,9 +45,7 @@ let TodoList = (props: Props) => {
     if (result.destination.index === result.source.index) {
       return;
     }
-    props.setTodos(
-      reorder(props.todos, result.source.index, result.destination.index)
-    );
+    setTodos(reorder(todos, result.source.index, result.destination.index));
   }
 
   return (

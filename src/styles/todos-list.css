@@ -35,7 +35,7 @@
 
 .checked-icon {
   position: absolute;
-  right: 0;
+  left: 30%;
   top: 40%;
   transition: transform 500ms ease;
   margin-right: 5px;

@@ -1,7 +1,10 @@
-import React from "react";
-import { NewTodoFormProps as Props } from "../../types/types";
+import { useContext } from "react";
+/* context */
+import AppContext from "../../context/AppContext";
+/* types */
 
-let NewTodoForm = ({ addTodo }: Props) => {
+let NewTodoForm = () => {
+  let { addTodo } = useContext(AppContext);
   const handleSubmit = (e: any) => {
     e.preventDefault();
     addTodo({ checked: false, value: e.target.elements[1].value });

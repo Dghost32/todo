@@ -1,7 +1,9 @@
-import React from "react";
-import { TitleProps as Props } from "../../types/types";
+import { useContext } from "react";
+/* context */
+import AppContext from "../../context/AppContext";
 
-let Title = ({ light, toggleBg }: Props) => {
+let Title = () => {
+  let { light, toggleBg } = useContext(AppContext);
   let icon = getIcon(light, toggleBg);
   return (
     <div className="row justify-content-between align-items-center ">

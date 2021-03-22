@@ -1,10 +1,13 @@
-import React from "react";
-/* types */
-import { FooterProps as Props } from "../../types/types";
+import { useContext } from "react";
+/* context */
+import AppContext from "../../context/AppContext";
 /* styles */
 import "../../styles/footer.css";
 
-let Footer = ({ clearCompletedTodos, setFilter, filter, numTodos }: Props) => {
+let Footer = () => {
+  let { clearCompletedTodos, setFilter, filter, numTodos } = useContext(
+    AppContext
+  );
   return (
     <div className="col-12 footer">
       <div className="row align-items-center justify-content-between footer-row">
