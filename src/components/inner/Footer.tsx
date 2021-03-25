@@ -5,14 +5,14 @@ import AppContext from "../../context/AppContext";
 import "../../styles/footer.css";
 
 let Footer = () => {
-  let { clearCompletedTodos, setFilter, filter, numTodos } = useContext(
+  let { clearCompletedTodos, setFilter, filter, todos } = useContext(
     AppContext
   );
   return (
     <div className="col-12 footer">
       <div className="row align-items-center justify-content-between footer-row">
         <div className="col-auto text text-left">
-          {numTodos} items <span className="d-none d-sm-inline">left</span>
+          {todos.length} items <span className="d-none d-sm-inline">left</span>
         </div>
         <div className="col-auto text-center">
           <div className="row justify-content-center filter">
